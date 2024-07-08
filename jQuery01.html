@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetInterval로 dot 자동옮기기</title>
+    <script src="js/jquery-3.7.1.js"></script>
+    
+    <script lang="java">
+        $(function(){
+
+            // setInterval(function(){console.log("Hi")}, 1000); //1초에 한번씩 function 안을 실행하라 > 무한 반복
+            // setTimeout(function(){console.log("Bye")}, 3000) // 3초일 때 한번 Bye를 입력해라 > 한번
+
+            var n = 0; //n은 현재 도트 인덱스 번호
+            
+            var time = setInterval(function(){
+                if(n==5){
+                    n=0;
+                }else{
+                    n++;
+                } //if
+                console.log(n);
+
+                $(".dot li").removeClass("on");
+                $(".dot li").eq(n).addClass("on");
+            },1800);
+            
+            $(".dot li").hover(function(){
+                clearInterval(time);
+            }, function(){
+                time = setInterval(function(){
+                if(n==5){
+                    n=0;
+                }else{
+                    n++;
+                } //if
+                console.log(n);
+
+                $(".dot li").removeClass("on");
+                $(".dot li").eq(n).addClass("on");
+            },1800);
+            })
+
+        }) //j
+    </script>
+
+
+    <style type="text/css">
+        *{margin: 0; padding: 0;}
+        ul, li{list-style: none;}
+        a{text-decoration: none; color: inherit;}
+        body{background-color: #000; color: #fff; padding: 100px;}
+        
+        h1{margin-left: 20px;}
+
+        .dot{
+            margin-top: 20px;
+        }
+
+        .dot li{
+            display: inline-block;
+            margin: 0 15px;
+        }
+        
+        .dot li a{
+            display: block;
+            width: 30px; height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            text-indent: -9999px;
+            transition: all 0.5s;
+        }
+
+        .dot li a:hover{
+            background-color: aqua;
+        }
+
+        .dot li.on a{
+            background-color: fuchsia;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h1>SetInterval</h1>
+
+    <ul class="dot">
+        <li class="on"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가격을 입력하세요</title>
+
+    <script lang="java">
+        var price, sale;
+        price=prompt("가격을 입력하세요.")
+        
+        if(price>=10000){
+            sale=price*=0.1
+            document.write( sale + "원이 할인되었습니다.")
+        }else if(price>=5000){
+            price*=0.03
+            document.write( sale + "원이 할인되었습니다.")
+        }else if(price>=1000){
+            price*=0.01
+            document.write(sale + "원이 할인되었습니다.")
+        }else{
+            document.write("할인된 가격이 없습니다.");
+        }
+    
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
